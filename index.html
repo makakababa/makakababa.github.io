@@ -17,19 +17,19 @@
     <div id="viz"></div>
     <script>
         var vlSpec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data":{
-    "url": "data/movies.json"
-    },
-    "mark":"bar",
-    "encoding": {
-    "x":{
-        "field": "IMDB Rating",
-        "type": "quantitative",
-        "bin": true
-    },
-    "y":{
-        "aggregate":"count"
-    },
+            "data":{
+            "url": "data/movies.json"
+            },
+            "mark":"bar",
+            "encoding": {
+            "x":{
+                "field": "IMDB Rating",
+                "type": "quantitative",
+                "bin": true
+            },
+            "y":{
+                "aggregate":"count"
+            },
 
     }
 }
