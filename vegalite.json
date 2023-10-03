@@ -1,0 +1,27 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://vega.github.io/editor/data/building_inventory.csv"
+    },
+    "mark": "line",
+    "params": [{"name": "myfirstparam", "select": "interval"}],
+    "transform": [
+      {
+        "aggregate": [
+          {"op": "sum", "field": "Square Footage", "as": "Total Square Footage"},
+          {"op": "sum", "field": "Total Floors", "as": "The Total Floors"}
+        ],
+        "groupby": ["Congress Dist"]
+      },
+      {
+        "calculate": "datum['Total Square Footage'] / datum['The Total Floors']",
+        "as": "Average Square Footage per Floor"
+      }
+    ],
+    "encoding": {
+      "x": {"field": "Congress Dist", "type": "quantitative"},
+      "y": {"field": "Average Square Footage per Floor", "type": "quantitative"},
+      "color": {"value": "grey", "condition": {"param": "myfirstparam"}}
+    }
+  }
+  
